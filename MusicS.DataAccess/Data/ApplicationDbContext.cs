@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using MusicS.Models;
 
-namespace MusicShop.Models
+namespace MusicS.DataAccess
 {
     public class ApplicationDbContext :DbContext
     {

@@ -1,18 +1,20 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using MusicShop.Models;
+using MusicS.DataAccess;
+using MusicS.DataAccess.Repository.IRepository;
+using MusicS.Models;
 
 namespace MusicShop.Controllers
 {
     public class AlbumController : Controller
     {
-        private readonly ApplicationDbContext _db;
-        public AlbumController(ApplicationDbContext db)
+        private readonly IUnitOfWork _unitOfWork;
+        public AlbumController(IUnitOfWork unitOfWork)
         {
-            _db = db;
+            _unitOfWork = unitOfWork;
         }
         public IActionResult Index()
         {
-            IEnumerable<Album> objAlbumList = _db.Albums;
+            IEnumerable<Album> objAlbumList = _unitOfWork.Album.GetAll();
 
             return View(objAlbumList);
         }
@@ -31,8 +33,8 @@ namespace MusicShop.Controllers
         {
             if (ModelState.IsValid)
             {
-                _db.Albums.Add(obj);
-                _db.SaveChanges();
+                _unitOfWork.Album.Add(obj);
+                _unitOfWork.Save();
                 TempData["success"]="Album Created";
                 return RedirectToAction("Index");
             }
@@ -48,7 +50,7 @@ namespace MusicShop.Controllers
             {
                 return NotFound();
             }
-            var albumFromDb = _db.Albums.Find(id);
+            var albumFromDb = _unitOfWork.Album.GetFirstOrDefault(u=>u.Id==id);
             if(albumFromDb== null)
             {
                 return BadRequest();
@@ -62,8 +64,8 @@ namespace MusicShop.Controllers
         {
             if (ModelState.IsValid)
             {
-                _db.Albums.Update(obj);
-                _db.SaveChanges();
+                _unitOfWork.Album.Update(obj);
+                _unitOfWork.Save();
                 TempData["success"] = "Album Edited";
                 return RedirectToAction("Index");
             }
@@ -78,7 +80,7 @@ namespace MusicShop.Controllers
             {
                 return NotFound();
             }
-            var albumFromDb = _db.Albums.Find(id);
+            var albumFromDb = _unitOfWork.Album.GetFirstOrDefault(u => u.Id == id);
             if (albumFromDb == null)
             {
                 return BadRequest();
@@ -90,16 +92,15 @@ namespace MusicShop.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult DeletePOST(int? id)
         {
-            var obj = _db.Albums.Find(id);
-            if(obj == null){
+            var obj = _unitOfWork.Album.GetFirstOrDefault(u => u.Id == id);
+            if (obj == null){
                 return BadRequest();
             }
-                _db.Albums.Remove(obj);
-                _db.SaveChanges();
+            _unitOfWork.Album.Remove(obj);
+            _unitOfWork.Save();
             TempData["success"] = "Album Deleted";
-            return RedirectToAction("Index");
+            return RedirectToAction("Index");        
             
-            return RedirectToAction("Index");
         }
     }
 }
