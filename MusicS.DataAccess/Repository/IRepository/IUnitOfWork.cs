@@ -8,7 +8,7 @@ namespace MusicS.DataAccess.Repository.IRepository
 {
     public interface IUnitOfWork
     {
-        IAlbumRepository Album { get; }
+        IGenreRepository Genre { get; }
         void Save();
     }
 }

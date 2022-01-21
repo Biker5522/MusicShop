@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Album>
+﻿@model IEnumerable<Genre>
 @{
     ViewData["Title"] = "Index";
 }
@@ -7,11 +7,11 @@
 <div class="container p-3">
     <div class="row pt-4">
         <div class="col-6">
-            <h2 class="text-primary">Albums List</h2>
+            <h2 class="text-primary">Genre List</h2>
 
         </div>
         <div class="col-6">
-            <a asp-controller="Album" asp-action="Add" class="btn btn-success">
+            <a asp-controller="Genre" asp-action="Add" class="btn btn-success">
                Add Album
             </a>
         </div>
@@ -21,18 +21,11 @@
 <table class="table table-bordered table-striped" style="width:100%">
 <thead>
     <tr>
-        <th>
-            Album Name
-        </th>
-        <th>
-           Band Name
-        </th>
+       
         <th>
            Genre
         </th>
-         <th>
-           Year of publication
-        </th>
+         
     </tr>
 </thead>
 <tbody>
@@ -42,21 +35,12 @@
             <td width="20%">
                 @obj.Name
             </td>
-            <td width="20%">
-                @obj.Band
-            </td>
-            <td width="20%">
-                @obj.Genre
-            </td>
-            <td width="20%">
-                @obj.Year
-            </td>
             <td>
                     <div class="btn btn-warning role=group  " >
-                     <a asp-controller="Album" asp-action="Edit" asp-route-id="@obj.Id">Edit</a>
+                     <a asp-controller="Genre" asp-action="Edit" asp-route-id="@obj.Id">Edit</a>
                     </div>
                     <div class="btn btn-danger role=group   ">
-                      <a asp-controller="Album" asp-action="Delete" asp-route-id="@obj.Id">Delete</a>
+                      <a asp-controller="Genre" asp-action="Delete" asp-route-id="@obj.Id">Delete</a>
                      </div>
                 
             </td>

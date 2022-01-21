@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace MusicS.DataAccess.Repository.IRepository
 {
-    public interface IAlbumRepository : IRepository<Album>
+    public interface IGenreRepository : IRepository<Genre>
     {
-        void Update(Album obj);
+        void Update(Genre obj);
        
     }
 }

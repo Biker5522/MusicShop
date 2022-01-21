@@ -5,16 +5,18 @@ using MusicS.Models;
 
 namespace MusicShop.Controllers
 {
-    public class AlbumController : Controller
+    [Area("Admin")]
+    public class GenreController : Controller
     {
+
         private readonly IUnitOfWork _unitOfWork;
-        public AlbumController(IUnitOfWork unitOfWork)
+        public GenreController(IUnitOfWork unitOfWork)
         {
             _unitOfWork = unitOfWork;
         }
         public IActionResult Index()
         {
-            IEnumerable<Album> objAlbumList = _unitOfWork.Album.GetAll();
+            IEnumerable<Genre> objAlbumList = _unitOfWork.Genre.GetAll();
 
             return View(objAlbumList);
         }
@@ -29,19 +31,19 @@ namespace MusicShop.Controllers
         //Post
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Add(Album obj)
+        public IActionResult Add(Genre obj)
         {
             if (ModelState.IsValid)
             {
-                _unitOfWork.Album.Add(obj);
+                _unitOfWork.Genre.Add(obj);
                 _unitOfWork.Save();
-                TempData["success"]="Album Created";
+                TempData["success"]="Genre Created";
                 return RedirectToAction("Index");
             }
             return View(obj);
         }
 
-        //CONFIGURE ALBUM//
+        //CONFIGURE GENRE//
 
         //Get
         public IActionResult Edit(int? id)
@@ -50,7 +52,7 @@ namespace MusicShop.Controllers
             {
                 return NotFound();
             }
-            var albumFromDb = _unitOfWork.Album.GetFirstOrDefault(u=>u.Id==id);
+            var albumFromDb = _unitOfWork.Genre.GetFirstOrDefault(u=>u.Id==id);
             if(albumFromDb== null)
             {
                 return BadRequest();
@@ -60,18 +62,18 @@ namespace MusicShop.Controllers
         //Post
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Edit(Album obj)
+        public IActionResult Edit(Genre obj)
         {
             if (ModelState.IsValid)
             {
-                _unitOfWork.Album.Update(obj);
+                _unitOfWork.Genre.Update(obj);
                 _unitOfWork.Save();
-                TempData["success"] = "Album Edited";
+                TempData["success"] = "Genre Edited";
                 return RedirectToAction("Index");
             }
             return View(obj);
         }
-        //DELETE ALBUM//
+        //DELETE GENRE//
 
         //Get
         public IActionResult Delete(int? id)
@@ -80,7 +82,7 @@ namespace MusicShop.Controllers
             {
                 return NotFound();
             }
-            var albumFromDb = _unitOfWork.Album.GetFirstOrDefault(u => u.Id == id);
+            var albumFromDb = _unitOfWork.Genre.GetFirstOrDefault(u => u.Id == id);
             if (albumFromDb == null)
             {
                 return BadRequest();
@@ -92,13 +94,13 @@ namespace MusicShop.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult DeletePOST(int? id)
         {
-            var obj = _unitOfWork.Album.GetFirstOrDefault(u => u.Id == id);
+            var obj = _unitOfWork.Genre.GetFirstOrDefault(u => u.Id == id);
             if (obj == null){
                 return BadRequest();
             }
-            _unitOfWork.Album.Remove(obj);
+            _unitOfWork.Genre.Remove(obj);
             _unitOfWork.Save();
-            TempData["success"] = "Album Deleted";
+            TempData["success"] = "Genre Deleted";
             return RedirectToAction("Index");        
             
         }

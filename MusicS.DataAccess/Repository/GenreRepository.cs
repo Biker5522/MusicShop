@@ -8,10 +8,10 @@ using System.Threading.Tasks;
 
 namespace MusicS.DataAccess.Repository
 {
-    public class AlbumRepository : Repository<Album>, IAlbumRepository
+    public class GenreRepository : Repository<Genre>, IGenreRepository
     {
         private ApplicationDbContext _db;
-        public AlbumRepository(ApplicationDbContext db) : base(db)
+        public GenreRepository(ApplicationDbContext db) : base(db)
         {
             _db = db;
         }
@@ -20,9 +20,9 @@ namespace MusicS.DataAccess.Repository
             _db.SaveChanges();
         }
 
-        public void Update(Album obj)
+        public void Update(Genre obj)
         {
-            _db.Albums.Update(obj);
+            _db.Genres.Update(obj);
         }
     }
 }

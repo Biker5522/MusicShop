@@ -1,0 +1,23 @@
+﻿@model Genre
+@{
+    ViewData["Title"] = "Add";
+}
+
+<form method="post">
+    <div class="border p-3 mt-4" style="font-weight:bold">
+        <div class="row pb-2">
+            <div class="text-primary">Add Genre</div>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Name">Name</label>
+            <input asp-for="Name" class="form-control" />
+            <span asp-validation-for="Name" class="text-danger"></span>
+        </div>
+    
+        <button type="submit" class="btn btn-success" style="width:150px">Add</button>
+        <a asp-controller="Genre" asp-action="Index" class="btn btn-info" style="width:200px">Back to list</a>
+    </div>
+
+</form>
+
