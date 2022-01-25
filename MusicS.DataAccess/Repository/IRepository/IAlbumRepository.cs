@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MusicS.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,10 +7,9 @@ using System.Threading.Tasks;
 
 namespace MusicS.DataAccess.Repository.IRepository
 {
-    public interface IUnitOfWork
+    public interface IAlbumRepository : IRepository<Album>
     {
-        IGenreRepository Genre { get; }
-        IAlbumRepository Album{ get; }
-        void Save();
+        void Update(Album obj);
+       
     }
 }

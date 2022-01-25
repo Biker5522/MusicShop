@@ -14,8 +14,10 @@ namespace MusicS.DataAccess.Repository
         {
             _db = db;
             Genre = new GenreRepository(_db);
+            Album = new AlbumRepository(_db);
         }
         public IGenreRepository Genre { get; private set; }
+        public IAlbumRepository Album { get; private set; }
 
         void IUnitOfWork.Save()
         {

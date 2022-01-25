@@ -16,12 +16,12 @@ namespace MusicShop.Controllers
         }
         public IActionResult Index()
         {
-            IEnumerable<Genre> objAlbumList = _unitOfWork.Genre.GetAll();
+            IEnumerable<Genre> objGenreList = _unitOfWork.Genre.GetAll();
 
-            return View(objAlbumList);
+            return View(objGenreList);
         }
 
-        //ADD ALBUM//
+        //ADD GENRE//
 
         //Get
         public IActionResult Add()
@@ -52,12 +52,12 @@ namespace MusicShop.Controllers
             {
                 return NotFound();
             }
-            var albumFromDb = _unitOfWork.Genre.GetFirstOrDefault(u=>u.Id==id);
-            if(albumFromDb== null)
+            var genreFromDb = _unitOfWork.Genre.GetFirstOrDefault(u=>u.Id==id);
+            if(genreFromDb== null)
             {
                 return BadRequest();
             }
-            return View(albumFromDb);
+            return View(genreFromDb);
         }
         //Post
         [HttpPost]
@@ -82,12 +82,12 @@ namespace MusicShop.Controllers
             {
                 return NotFound();
             }
-            var albumFromDb = _unitOfWork.Genre.GetFirstOrDefault(u => u.Id == id);
-            if (albumFromDb == null)
+            var genreFromDb = _unitOfWork.Genre.GetFirstOrDefault(u => u.Id == id);
+            if (genreFromDb == null)
             {
                 return BadRequest();
             }
-            return View(albumFromDb);
+            return View(genreFromDb);
         }
         //Post
         [HttpPost]

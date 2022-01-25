@@ -1,0 +1,108 @@
+﻿@model MusicS.Models.ViewModels.AlbumVM
+
+<form method="post" asp-action=Upsert enctype="multipart/form-data">
+    <input asp-for="Album.Id" hidden />
+    <input asp-for="Album.ImageUrl" hidden />
+    <div class="row">
+    <div class="col-10">
+         <div class="border p-3 mt-4 row" style="font-weight:bold">
+        <div class="col-12 pb-2">
+            <iv class="text-primary">@(Model.Album.Id!=0?"Update ":"Create ")Album</iv>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Album.Title">Title</label>
+            <input asp-for="Album.Title" class="form-control" />
+            <span asp-validation-for="Album.Title" class="text-danger"></span>
+        </div>
+         <div class="mb-3">
+            <label asp-for="Album.Band">Band</label>
+            <input asp-for="Album.Band" class="form-control" />
+            <span asp-validation-for="Album.Band" class="text-danger"></span>
+        </div>
+
+         <div class="mb-3">
+            <label asp-for="Album.ImageUrl">Album Cover</label>
+            <input type="file" id="uploadBox" class="form-control" name="file" />
+        </div>
+
+        <div class="mb-3 col-6">
+            <label asp-for="Album.GenreId">Genre</label>
+            <select asp-for="Album.GenreId" asp-items="@Model.GenreList" class="form-select">
+                <option disabled selected>--Select Genre--</option>
+            </select>
+            <span asp-validation-for="Album.GenreId" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3 col-6">
+            <label asp-for="Album.ListPrice"></label>
+            <input asp-for="Album.ListPrice" class="form-control" />
+            <span asp-validation-for="Album.ListPrice" class="text-danger"></span>
+        </div>
+        <div class="mb-3 col-6">
+            <label asp-for="Album.Price3"></label>
+            <input asp-for="Album.Price3" class="form-control" />
+            <span asp-validation-for="Album.Price3" class="text-danger"></span>
+        </div>
+         <div class="mb-3 col-6">
+            <label asp-for="Album.Year">Year</label>
+            <input asp-for="Album.Year" class="form-control" />
+            <span asp-validation-for="Album.Year" class="text-danger"></span>
+        </div>
+         <div class="mb-3 col-6">
+            <label asp-for="Album.Price">Price</label>
+            <input asp-for="Album.Price" class="form-control" />
+            <span asp-validation-for="Album.Price" class="text-danger"></span>
+        </div>
+         <div class="mb-3 col-6">
+            <label asp-for="Album.Price3">Price3</label>
+            <input asp-for="Album.Price3" class="form-control" />
+            <span asp-validation-for="Album.Price3" class="text-danger"></span>
+        </div>
+        <div class="col-12">
+            @if (Model.Album.Id != 0)
+            {
+                <button type="submit" class="btn btn-success" style="width:150px">Update</button>
+                
+            }
+            else
+             {
+                <button type="submit" onclick="return ValidateInput()" class="btn btn-success" style="width:150px">Create</button>
+  
+                }
+             <a asp-controller="Album" asp-action="Index" class="btn btn-info" style="width:200px">Back to list</a>
+        </div>
+    </div>
+
+    </div>
+  <div class="col-2">
+      <img src="@Model.Album.ImageUrl"
+      width="100%" style="border-radius:5px; border:1px solid #bbb9b9" />
+  </div>
+
+    </div>
+    
+
+   
+    
+</form>
+@section Scripts{
+    @{
+        <partial name="_ValidationScriptsPartial" />
+
+    }
+    <script>
+    function ValidateInput(){
+        if(document.getElementById("uploadBox").value==""){
+            Swal.fire({
+             icon: 'error',
+                title: 'Oops...',
+                    text: 'Upload Image!',
+                        
+});
+return false;
+        }
+        return true;
+    }
+    </script>
+}

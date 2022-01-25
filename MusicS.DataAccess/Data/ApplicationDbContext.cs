@@ -10,5 +10,6 @@ namespace MusicS.DataAccess
 
         }
         public DbSet<Genre> Genres { get; set; }
+        public DbSet<Album> Albums { get; set; }
     }
 }
