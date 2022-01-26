@@ -1,9 +1,10 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using MusicS.Models;
 
 namespace MusicS.DataAccess
 {
-    public class ApplicationDbContext :DbContext
+    public class ApplicationDbContext :IdentityDbContext
     {
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
         {
@@ -11,5 +12,6 @@ namespace MusicS.DataAccess
         }
         public DbSet<Genre> Genres { get; set; }
         public DbSet<Album> Albums { get; set; }
+        public DbSet<ApplicationUser> ApplicationUsers { get; set; }
     }
 }

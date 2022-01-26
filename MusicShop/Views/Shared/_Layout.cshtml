@@ -37,10 +37,7 @@
           
         </li>
       </ul>
-      <form class="d-flex">
-        <input class="form-control me-sm-2" type="text" placeholder="Search">
-        <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
-      </form>
+      <partial name="_LoginPartial" />
     </div>
   </div>
 </nav>
@@ -53,11 +50,6 @@
         </main>
     </div>
 
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2022 - MusicShop - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-        </div>
-    </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
@@ -65,5 +57,15 @@
     <script src=" //cdn.datatables.net/1.11.4/js/jquery.dataTables.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
     @await RenderSectionAsync("Scripts", required: false)
+    
+   <footer class="page-footer font-small blue fixed-bottom">
+
+  <div class="footer-copyright text-center py-3">© 2022 Copyright: Dawid Cichy
+   
+  </div>
+
+
+</footer>
 </body>
+
 </html>
