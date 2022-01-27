@@ -13,25 +13,25 @@ namespace MusicS.Test.Unit
 {
     public class ShoppingTest
     {
-        [Fact]
-        public void IncrementShoppingCart()
-        {
-            // Arrange
-            GenreController controller = new GenreController();
+        //[Fact]
+        //public void IncrementShoppingCart()
+        //{
+        //    // Arrange
+        //    GenreController controller = new GenreController();
 
-            Genre expected = new Genre()
-            {
-                Name = "kek"
-            };
+        //    Genre expected = new Genre()
+        //    {
+        //        Name = "kek"
+        //    };
 
-            //Act
-            Genre actual = controller.TestGet(3).Value;
+        //    //Act
+        //    Genre actual = controller.TestGet(3).Value;
 
 
-            //Assert
-            Assert.Equal(expected.Name, actual.Name);
+        //    //Assert
+        //    Assert.Equal(expected.Name, actual.Name);
 
-        }
+        //}
 
 
         //[Fact]

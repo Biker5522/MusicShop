@@ -108,20 +108,20 @@ namespace MusicShop.Controllers
             
         }
 
-        [HttpGet]
-        [Route("{id?}")]
-        public IActionResult TestGet(int? id)
-        {
-            return new ActionResult<Genre>(id < 5 ? new Genre() { Name = "kek" } : null);
+        //[HttpGet]
+        //[Route("{id?}")]
+        //public IActionResult TestGet(int? id)
+        //{
+        //    return new ActionResult<Genre>(id < 5 ? new Genre() { Name = "kek" } : null);
 
 
 
-            Genre genre = new Genre { Name = "kek" };
+        //    Genre genre = new Genre { Name = "kek" };
 
-            if (genre != null)
-                return Ok();
-            else
-                return BadRequest();
-        }
+        //    if (genre != null)
+        //        return Ok();
+        //    else
+        //        return BadRequest();
+        //}
     }
 }
