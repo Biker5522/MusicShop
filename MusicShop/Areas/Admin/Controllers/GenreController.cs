@@ -1,11 +1,14 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using MusicS.DataAccess;
 using MusicS.DataAccess.Repository.IRepository;
 using MusicS.Models;
+using MusicS.Utility;
 
 namespace MusicShop.Controllers
 {
     [Area("Admin")]
+    [Authorize(Roles = SD.Role_Admin)]
     public class GenreController : Controller
     {
 
