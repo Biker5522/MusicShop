@@ -11,9 +11,11 @@ using Microsoft.AspNetCore.Identity.UI.Services;
 
 
 using System;
-
+using MusicS.Utility;
 
 var builder = WebApplication.CreateBuilder(args);
+
+
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
@@ -21,12 +23,14 @@ builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlSer
     builder.Configuration.GetConnectionString("DefaultConnection")
     ));
 
-builder.Services.AddDefaultIdentity<IdentityUser>()
+builder.Services.AddIdentity<IdentityUser, IdentityRole>().AddDefaultTokenProviders()
     .AddEntityFrameworkStores<ApplicationDbContext>();
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
+builder.Services.AddSingleton<IEmailSender, EmailSender>();
 
 
 builder.Services.AddRazorPages().AddRazorRuntimeCompilation();
+
 
 builder.Services.ConfigureApplicationCookie(options =>
 {

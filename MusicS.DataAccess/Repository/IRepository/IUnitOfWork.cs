@@ -10,6 +10,8 @@ namespace MusicS.DataAccess.Repository.IRepository
     {
         IGenreRepository Genre { get; }
         IAlbumRepository Album{ get; }
+        IShoppingCartRepository ShoppingCart { get; }
+        IApplicationUserRepository ApplicationUser { get; }
         void Save();
     }
 }

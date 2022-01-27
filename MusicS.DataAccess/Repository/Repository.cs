@@ -16,7 +16,7 @@ namespace MusicS.DataAccess.Repository
         public Repository(ApplicationDbContext db)
         {
             _db = db;
-           // _db.Albums.Include(u => u.Genre);
+           //_db.ShoppingCarts.Include(u => u);
             this.dbSet=_db.Set<T>();   
         }
         public void Add(T entity)
@@ -25,9 +25,11 @@ namespace MusicS.DataAccess.Repository
            
         }
         //IncludeProp Genre
-        public IEnumerable<T> GetAll(string? includeProperties = null)
+        public IEnumerable<T> GetAll(Expression<Func<T, bool>>? filter = null,string ? includeProperties = null)
         {
             IQueryable<T> query = dbSet;
+           
+            
             if (includeProperties != null)
             {
                 foreach(var includeProp in includeProperties.Split(new char[] { ',' },StringSplitOptions.RemoveEmptyEntries))

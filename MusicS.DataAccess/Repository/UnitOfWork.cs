@@ -15,9 +15,13 @@ namespace MusicS.DataAccess.Repository
             _db = db;
             Genre = new GenreRepository(_db);
             Album = new AlbumRepository(_db);
+            ApplicationUser = new ApplicationUserRepository(_db);
+            ShoppingCart = new ShoppingCartRepository(_db);
         }
         public IGenreRepository Genre { get; private set; }
         public IAlbumRepository Album { get; private set; }
+        public IApplicationUserRepository ApplicationUser { get; private set; }
+        public IShoppingCartRepository ShoppingCart { get; private set; }
 
         void IUnitOfWork.Save()
         {
