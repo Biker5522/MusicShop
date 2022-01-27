@@ -21,7 +21,7 @@
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-
+    
     <div class="collapse navbar-collapse" id="navbarColor01">
       <ul class="navbar-nav me-auto">
         <li class="nav-item">
@@ -56,12 +56,12 @@
 
        
     </header>
-    <div class="container">
+    <div class="container bg-image" style="background-image:url('https://cdn.pixabay.com/photo/2019/07/02/11/18/crowd-4312230_960_720.jpg');height:400px;">
         <main role="main" class="pb-3">
             @RenderBody()
         </main>
     </div>
-
+    
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
@@ -69,7 +69,7 @@
     <script src=" //cdn.datatables.net/1.11.4/js/jquery.dataTables.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
     @await RenderSectionAsync("Scripts", required: false)
-    
+ 
    <footer class="page-footer font-small blue fixed-bottom">
 
   <div class="footer-copyright text-center py-3">© 2022 Copyright: Dawid Cichy

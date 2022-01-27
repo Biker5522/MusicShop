@@ -34,14 +34,13 @@ namespace MusicShop.Controllers
         {
             AlbumVM albumVM = new()
             {
-
-                Album = new(),
-                GenreList = _unitOfWork.Genre.GetAll().Select(i => new SelectListItem
-                {
-                    Text = i.Name,
-                    Value = i.Id.ToString()
-                }),
-            };
+                    Album = new(),
+                    GenreList = _unitOfWork.Genre.GetAll().Select(i => new SelectListItem
+                    {
+                        Text = i.Name,
+                        Value = i.Id.ToString()
+                    }),
+                };
 
             if (id == null || id == 0)
             {
@@ -57,6 +56,7 @@ namespace MusicShop.Controllers
 
             }
             return View(albumVM);
+        
 
         }
         //Post

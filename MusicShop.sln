@@ -5,11 +5,13 @@ VisualStudioVersion = 17.0.32014.148
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MusicShop", "MusicShop\MusicShop.csproj", "{02AB99F0-2540-4CF0-A3B1-BB98740E3318}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MusicS.DataAccess", "MusicS.DataAccess\MusicS.DataAccess.csproj", "{1316F17A-0C1A-44A3-B930-16103616B181}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MusicS.DataAccess", "MusicS.DataAccess\MusicS.DataAccess.csproj", "{1316F17A-0C1A-44A3-B930-16103616B181}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MusicS.Models", "MusicS.Models\MusicS.Models.csproj", "{DA900956-709D-49E7-B737-42A6B6773CB2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MusicS.Models", "MusicS.Models\MusicS.Models.csproj", "{DA900956-709D-49E7-B737-42A6B6773CB2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MusicS.Utility", "MusicS.Utility\MusicS.Utility.csproj", "{5A30E481-C02F-4C64-A3EE-D21F5E2F7C39}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MusicS.Utility", "MusicS.Utility\MusicS.Utility.csproj", "{5A30E481-C02F-4C64-A3EE-D21F5E2F7C39}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MusicS.Test", "MusicS.Test\MusicS.Test.csproj", "{276437AE-926C-4C99-A9D3-CB20BD1C76E3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{5A30E481-C02F-4C64-A3EE-D21F5E2F7C39}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5A30E481-C02F-4C64-A3EE-D21F5E2F7C39}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5A30E481-C02F-4C64-A3EE-D21F5E2F7C39}.Release|Any CPU.Build.0 = Release|Any CPU
+		{276437AE-926C-4C99-A9D3-CB20BD1C76E3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{276437AE-926C-4C99-A9D3-CB20BD1C76E3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{276437AE-926C-4C99-A9D3-CB20BD1C76E3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{276437AE-926C-4C99-A9D3-CB20BD1C76E3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
