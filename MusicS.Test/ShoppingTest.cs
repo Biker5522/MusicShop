@@ -13,9 +13,9 @@ namespace MusicS.Test.Unit
 {
     public class ShoppingTest 
     {
-       
+
         //private readonly Mock<ApplicationDbContext> db = new Mock<ApplicationDbContext>();
-        
+
         //[Fact]
         //public void AddAlbumTest()
         //{
@@ -32,18 +32,18 @@ namespace MusicS.Test.Unit
         //}
 
 
-        
+
 
         //[Fact]
-        //public void Testt()
+        //public void Test()
         //{
-        //     Mock<IUnitOfWork> unitMock = new Mock<IUnitOfWork>();
-        ////Arrange
-        //GenreController controller = new GenreController(unitMock.Object);
+        //    Mock<IUnitOfWork> unitMock = new Mock<IUnitOfWork>();
+        //    //Arrange
+        //    GenreController controller = new GenreController(unitMock.Object);
         //    int testNum = 5;
 
         //    //Act
-        //    var result = controller.DeletePOST(5);
+        //    var result = controller.Delete(5);
 
 
         //    //Assert
@@ -61,7 +61,7 @@ namespace MusicS.Test.Unit
 
         //    Genre expected = new Genre()
         //    {
-        //        Name = "kek"
+        //        Name = "test"
         //    };
 
         //    //Act
