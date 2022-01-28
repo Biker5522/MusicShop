@@ -1,0 +1,13 @@
+Projekt korzysta z bazy danych na Azure, można zmienić na lokalną baze danych w appsettings.json
+
+Przykładowi użytkownicy:
+Admin: 
+  Login: dawidadmin@gmailcom
+  hasło: Qwerty123@
+  Posiada on dostęp no panelu zarządzania
+  
+User:
+Login:user@gmail.com
+hasło: Asd123@
+
+  
