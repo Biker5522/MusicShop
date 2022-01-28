@@ -11,8 +11,48 @@ using MusicShop.Controllers;
 
 namespace MusicS.Test.Unit
 {
-    public class ShoppingTest
+    public class ShoppingTest 
     {
+       
+        //private readonly Mock<ApplicationDbContext> db = new Mock<ApplicationDbContext>();
+        
+        //[Fact]
+        //public void AddAlbumTest()
+        //{
+        //     Mock<IGenreRepository> gen = new Mock<IGenreRepository>();
+        //    gen.Setup()
+        //GenreRepository repository = new GenreRepository(db.Object);
+        //    repository.Add(new MusicS.Models.Genre() { Name = "TEST" });
+        //    repository.Add(new MusicS.Models.Genre() { Name = "TEST" });
+        //    GenreController controllerTest = new GenreController(gen.Object);
+        //    Genre newBook = new Genre() { Id = 10, Name = "NEW" };
+        //    ActionResult<Genre> actionResult = controllerTest.AddBook(newBook);
+        //    Assert.Equal("NEW", repository.GetFirstOrDefault(3).Name);
+
+        //}
+
+
+        
+
+        //[Fact]
+        //public void Testt()
+        //{
+        //     Mock<IUnitOfWork> unitMock = new Mock<IUnitOfWork>();
+        ////Arrange
+        //GenreController controller = new GenreController(unitMock.Object);
+        //    int testNum = 5;
+
+        //    //Act
+        //    var result = controller.DeletePOST(5);
+
+
+        //    //Assert
+        //    Assert.IsType<BadRequestResult>(result);
+
+        //}
+
+
+
         //[Fact]
         //public void IncrementShoppingCart()
         //{

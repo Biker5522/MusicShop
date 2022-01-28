@@ -55,16 +55,15 @@ namespace MusicShop.Controllers
                 return View(albumVM);
 
             }
-            return View(albumVM);
-        
 
         }
         //Post
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Upsert(AlbumVM obj, IFormFile file)
+        public IActionResult Upsert(AlbumVM obj, IFormFile? file)
         {
-            
+            if (ModelState.IsValid)
+            {
 
                 string wwwRootPath = _hostEnvironment.WebRootPath;
                 if (file != null)
@@ -88,7 +87,7 @@ namespace MusicShop.Controllers
 
                     obj.Album.ImageUrl = @"\images\albums\" + fileName + extension;
 
-
+                }
                     if (obj.Album.Id == 0)
                     {
                         _unitOfWork.Album.Add(obj.Album);
@@ -99,14 +98,14 @@ namespace MusicShop.Controllers
                     }
 
 
-                }
-
+                
 
                 _unitOfWork.Save();
                 TempData["success"] = "Album Added";
                 return RedirectToAction("Index");
+            }
+            return View(obj);
 
-          
         }
         //POST DELETE
         
@@ -142,39 +141,6 @@ namespace MusicShop.Controllers
         }
         #endregion
     }
-
-
-    //DELETE GENRE//
-
-    ////Get
-    //public IActionResult Delete(int? id)
-    //{
-    //    if (id == null)
-    //    {
-    //        return NotFound();
-    //    }
-    //    var albumFromDb = _unitOfWork.Album.GetFirstOrDefault(u => u.Id == id);
-    //    if (albumFromDb == null)
-    //    {
-    //        return BadRequest();
-    //    }
-    //    return View(albumFromDb);
-    //}
-    ////Post
-    //[HttpPost]
-    //[ValidateAntiForgeryToken]
-    //public IActionResult DeletePOST(int? id)
-    //{
-    //    var obj = _unitOfWork.Album.GetFirstOrDefault(u => u.Id == id);
-    //    if (obj == null){
-    //        return BadRequest();
-    //    }
-    //    _unitOfWork.Album.Remove(obj);
-    //    _unitOfWork.Save();
-    //    TempData["success"] = "Album Deleted";
-    //    return RedirectToAction("Index");        
-
-    //}
 
 }
 

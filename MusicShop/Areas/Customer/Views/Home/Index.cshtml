@@ -1,11 +1,11 @@
 ﻿@model IEnumerable<MusicS.Models.Album>
 
-    <div class="text-center">
- <div class="container d-flex justify-content-center mt-50 mb-50">
+   
+ <div class="container d-flex justify-content-center mt-50 mb-50" style="background-image: url('https://cdn.pixabay.com/photo/2015/01/13/13/20/music-598176_960_720.jpg'); background-repeat: no-repeat; background-size: cover; background-position: center center;height:115vh;">
       <div class="row">
      @foreach (var album in Model){
    
-        <div class="col-md-4 mt-2">
+        <div class="col-md-3 mt-1" style="padding-top:2%;">
             <div class="card">
                 <div class="card-body">
                     <div class="card-img-actions"> <img src="@album.ImageUrl" class="card-img img-fluid" width="96" height="350" alt=""> </div>
@@ -31,4 +31,5 @@
         </div>
         
         </div>
-        </div>
+        
+        
